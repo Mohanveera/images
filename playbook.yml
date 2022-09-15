@@ -1,0 +1,12 @@
+  name: push docker image
+- hosts: all
+  tasks:
+   - name: build image
+     command: docker build -t plybook .
+     args:  
+      chdir: /opt/docker
+   - name: tag image name
+     command: docker tag plybook mohanveera/playbook
+   - name: push image to docker
+     command: docker push mohanveera/playbook
+
